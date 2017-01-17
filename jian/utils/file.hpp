@@ -88,14 +88,14 @@ public:
 	void next_line()
 	{
 		if (stream == NULL || el->n == -2) throw "next_line error!";
-		STD_ getline(*stream, el->line);
-		if (!stream->eof()) {
-			tokenize(el->line, el->arr, delimiters);
-			el->n++;
-		}
-		else {
-			el->n = -2;
-		}
+        if (stream->eof()) {
+            el->n = -2;
+        }
+        else {
+            STD_ getline(*stream, el->line);
+            tokenize(el->line, el->arr, delimiters);
+            el->n++;
+        }
 	}
 
 	It &operator ++()
