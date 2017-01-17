@@ -4,14 +4,16 @@
 #include "../utils/log.hpp"
 #include "../utils/platform.hpp"
 
-#if defined(JN_OS_WIN)
+#ifdef JN_OS_WIN
+
+# pragma comment(lib, "ws2_32.lib")
 
 #include <windows.h>  
 #define CLOSE_SOCKET(x)        ::closesocket(x)
 #define IS_SOCKET_VALID(x)     (x!=INVALID_SOCKET)
 #define INVALIDATE_SOCKET(x)   x=INVALID_SOCKET
 #define BLOCKREADWRITE         0  
-#define NONBLOCKREADWRITE      0  
+#define NONBLOCKREADWRITE      0 
 #define SENDNOSIGNAL           0  
 #define ETRYAGAIN(x)           (x==WSAEWOULDBLOCK||x==WSAETIMEDOUT)  
 #define gxsprintf              sprintf_s  

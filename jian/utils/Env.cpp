@@ -2,10 +2,10 @@
 
 BEGIN_JN
 
-	int g_argc;
+int g_argc;
 
-	char **g_argv;
+char **g_argv;
 
-	Par g_par;
+Par g_par;
 
-}
+END_JN

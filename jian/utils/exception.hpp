@@ -17,5 +17,5 @@ public:
     }
 };
 
-}
+END_JN
 

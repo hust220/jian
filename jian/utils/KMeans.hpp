@@ -14,18 +14,18 @@
 
 BEGIN_JN
 
-	class KMeans : public Cluster {
-	public:
-		int m_k;
-		int m_max_steps;
+class KMeans : public Cluster {
+public:
+	int m_k;
+	int m_max_steps;
 
-		KMeans(const Par &par);
+	KMeans(const Par &par);
 
-		void rand_select(int size);
+	void rand_select(int size);
 
-		virtual Cluster &operator ()(const Mat &mat);
+	virtual Cluster &operator ()(const Mat &mat);
 
-	};
+};
 
 END_JN
 
