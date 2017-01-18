@@ -14,11 +14,13 @@ KMeans::KMeans(const Par &par) {
 
 void KMeans::rand_select(int size) {
 	std::vector<int> a(size);
-	std::iota(a.begin(), a.end(), 0);
-
 	std::random_device rd;
 	std::mt19937 gen(rd());
 
+	if (size < m_k) throw to_str("KMeans::rand_select error!",
+		"The number of objects to be clustered should be not less than the number of clusters.");
+
+	std::iota(a.begin(), a.end(), 0);
 	for (int i = 0; i < m_k; i++) {
 		std::uniform_int_distribution<> dis(0, a.size() - 1);
 		int n = dis(gen);
