@@ -23,4 +23,12 @@ void mpi_free();
 
 END_JN
 
+#define JN_MPI_INIT(argc, argv) JN_ mpi_init(&argc, &argv)
+#define JN_MPI_FREE
+
+#else
+
+#define JN_MPI_INIT(argc, argv) 
+#define JN_MPI_FREE
+
 #endif
