@@ -2,6 +2,7 @@
 
 #include <string>
 #include <exception>
+#include "traits.hpp"
 
 BEGIN_JN
 
