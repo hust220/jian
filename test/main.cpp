@@ -1,2 +1,5 @@
-#define JN_TEST_MAIN
-#include <jntest/UnitTest.hpp>
+#include <jian/test.hpp>
+
+int main(int argc, char **argv) {
+    jian::run_test();
+}

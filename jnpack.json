@@ -1,6 +1,6 @@
 {
   "depends": [
-    "eigen", "jntest"
+    "eigen"
   ],
 
   "projs": {
