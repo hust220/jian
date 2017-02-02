@@ -1,5 +1,20 @@
 {
   "depends": [
     "eigen", "jntest"
-  ]
+  ],
+
+  "projs": {
+    "default": {
+      "extends": "jian-test"
+    },
+
+    "jian-test": {
+      "target": "jian-test",
+      "cxx_flags": ["-std=c++14", "-pthread"],
+      "cxx_compiler": "$ENV{MPI_HOME}/bin/mpicxx",
+      "threads": 16,
+      "defs": ["JN_PARA"],
+      "dirs": ["jian", "test"]
+    }
+  }
 }
