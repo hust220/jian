@@ -15,9 +15,9 @@ int mpi_rank();
 
 int mpi_size();
 
-void mpi_send();
+void mpi_send(Str s, int rank);
 
-Str mpi_recv();
+Str mpi_recv(int rank);
 
 void mpi_free();
 
