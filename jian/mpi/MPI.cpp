@@ -1,9 +1,9 @@
+#ifdef JN_PARA
+
 #include <memory>
 #include "MPI.hpp"
 
 BEGIN_JN
-
-#ifdef JN_PARA
 
 void mpi_init(int *argc, char ***argv) {
     MPI_Init(argc, argv);
@@ -38,7 +38,8 @@ void mpi_free() {
     MPI_Finalize();
 }
 
+END_JN
+
 #endif
 
-END_JN
 
