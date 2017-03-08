@@ -19,6 +19,9 @@ public:
     std::map<Str, pars_t> _pars;
     pars_t _orig_pars;
 
+    Int m_argc;
+    Char **m_argv;
+
 	Par() = default;
 
 	Par(const Par &par) = default;

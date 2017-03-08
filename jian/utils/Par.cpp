@@ -31,6 +31,8 @@ void Par::read(Str par_file) {
 }
 
 void Par::read(int argc, char **argv) {
+    m_argc = argc;
+    m_argv = argv;
     for (int i = 0; i < argc; i++) _orig_pars.push_back(argv[i]);
     Str key;
     std::deque<Str> values;
