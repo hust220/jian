@@ -106,17 +106,17 @@ BEGIN_JN
 
 		template<typename NumType>
 		Superposition<NumType> suppos(const MatX<NumType> &m, const MatX<NumType> &n) {
-			Superposition<NumType> sp(m, n);
-			sp.c1 = -(sp.c1);
-			return sp;
+			return Superposition<NumType>(m, n);
+			//sp.c1 = -(sp.c1);
 		}
 
 		template<typename T, typename NumType>
 		Superposition<NumType> suppos(T &t, const MatX<NumType> &m, const MatX<NumType> &n) {
-			Superposition<NumType> && sp = suppos(m, n);
-			for (int i = 0; i < t.rows(); i++) for (int j = 0; j < 3; j++) t(i, j) -= sp.c1[j];
-			t = t * sp.rot;
-			for (int i = 0; i < t.rows(); i++) for (int j = 0; j < 3; j++) t(i, j) += sp.c2[j];
+			Superposition<NumType> sp(m, n);
+            sp.apply_m(t);
+//			for (int i = 0; i < t.rows(); i++) for (int j = 0; j < 3; j++) t(i, j) -= sp.c1[j];
+//			t = t * sp.rot;
+//			for (int i = 0; i < t.rows(); i++) for (int j = 0; j < 3; j++) t(i, j) += sp.c2[j];
 			return sp;
 		}
 
@@ -130,9 +130,11 @@ BEGIN_JN
 
 			auto sp = suppos(m, n);
 
-			for (int i = 0; i < src.rows(); i++) for (int j = 0; j < 3; j++) src(i, j) -= sp.c1[j];
-			src = src * sp.rot;
-			for (int i = 0; i < src.rows(); i++) for (int j = 0; j < 3; j++) src(i, j) += sp.c2[j];
+            sp.apply_m(src);
+
+//			for (int i = 0; i < src.rows(); i++) for (int j = 0; j < 3; j++) src(i, j) -= sp.c1[j];
+//			src = src * sp.rot;
+//			for (int i = 0; i < src.rows(); i++) for (int j = 0; j < 3; j++) src(i, j) += sp.c2[j];
 			return sp;
 		}
 
