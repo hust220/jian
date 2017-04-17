@@ -183,6 +183,14 @@ using Ms = M<S, _Type>;
 template<typename _Type>
 using Mb = M<B, _Type>;
 
+// map of stl
+template<typename _Out, typename _Fn, typename _In>
+_Out map_s(_Fn && f, _In && in) {
+    _Out out;
+    for (auto && i : in) out.push_back(f(i));
+    return out;
+}
+
 #define Out  STD_ cout
 #define In   STD_ cin 
 #define Err  STD_ cerr

@@ -40,5 +40,17 @@ Str to_lower_copy(const Str &str);
 void trim(Str &);
 Str trim_copy(const Str &);
 
+template<typename _Interval, typename _Ls>
+static Str join(_Interval && interval, _Ls && ls) {
+    std::stringstream stream;
+    Int i = 0;
+    for (const auto & s : ls) {
+        if (i != 0) stream << interval;
+        stream << s;
+        i++;
+    }
+    return stream.str();
+}
+
 END_JN
 
